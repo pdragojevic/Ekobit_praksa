@@ -1,3 +1,5 @@
+using Business.Services.Implementation;
+using Business.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SimpleLoginAPI.Models;
 using SimpleLoginAPI.Swagger;
 using System;
 using System.Collections.Generic;
@@ -33,8 +34,10 @@ namespace SimpleLoginAPI
             services.AddControllers();
             services.AddSwagger();
 
-            services.AddDbContext<SimpleLoginContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            #region CUSTOM SERVICES
+            services.AddScoped<IUser_Service, User_Service>();
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

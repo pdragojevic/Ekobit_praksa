@@ -7568,11 +7568,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pdragojevic\\OneDrive\\SimpleLogin\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\pdragojevic\\OneDrive\\Ekobit_praksa\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\pdragojevic\\OneDrive\\SimpleLogin\\Data\\Data.csproj",
+      "projectPath": "C:\\Users\\pdragojevic\\OneDrive\\Ekobit_praksa\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\pdragojevic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pdragojevic\\OneDrive\\SimpleLogin\\Data\\obj\\",
+      "outputPath": "C:\\Users\\pdragojevic\\OneDrive\\Ekobit_praksa\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pdragojevic\\AppData\\Roaming\\NuGet\\NuGet.Config",

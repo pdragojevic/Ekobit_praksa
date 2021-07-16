@@ -1,0 +1,15 @@
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\Data.deps.json
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\Data.runtimeconfig.json
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\Data.dll
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\ref\Data.dll
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\bin\Debug\net5.0\Data.pdb
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.dll
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\ref\Data.dll
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.pdb
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
