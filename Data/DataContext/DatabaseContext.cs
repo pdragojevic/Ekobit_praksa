@@ -72,10 +72,10 @@ namespace Data.DataContext
                     .HasMaxLength(10)
                     .IsRequired();
 
-                /*entity.HasMany<User>(c => c.Users)
+                entity.HasMany<User>(c => c.Users)
                     .WithOne(u => u.City)
                     .HasForeignKey(u => u.ZipCode)
-                    .OnDelete(DeleteBehavior.Restrict);*/
+                    .OnDelete(DeleteBehavior.Restrict);
             });
             #endregion
         }

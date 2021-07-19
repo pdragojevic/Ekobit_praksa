@@ -36,6 +36,7 @@ namespace SimpleLoginAPI
 
             #region CUSTOM SERVICES
             services.AddScoped<IUser_Service, User_Service>();
+            services.AddScoped<ICity_Service, City_Service>();
             #endregion
 
         }

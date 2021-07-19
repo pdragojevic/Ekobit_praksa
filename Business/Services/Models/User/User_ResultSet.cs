@@ -12,6 +12,6 @@ namespace Business.Services.Models.User
         public string password { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
-        public string zip_code { get; set; }
+        public string city_name { get; set; }
     }
 }

@@ -60,5 +60,19 @@ namespace SimpleLoginAPI.Controllers
                     return Unauthorized(result);
             }
         }
+
+        [HttpDelete("{user_name}")]
+        public async Task<ActionResult> Delete(string user_name)
+        {
+            var result = await _user_service.DeleteUser(user_name);
+            switch (result.success)
+            {
+                case true:
+                    return Ok(result);
+
+                case false:
+                    return StatusCode(500, result);
+            }
+        }
     }
 }

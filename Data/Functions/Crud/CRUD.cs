@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Data.Functions.Interfaces;
+using System.Linq;
 
 namespace Data.Functions.CRUD
 {

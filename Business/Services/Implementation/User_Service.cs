@@ -2,6 +2,7 @@
 using Business.Services.Models;
 using Business.Services.Models.User;
 using Data.Functions.CRUD;
+using Data.Functions.Specific;
 using Data.Functions.Interfaces;
 using Data.Entities;
 using System;
@@ -15,15 +16,16 @@ namespace Business.Services.Implementation
     public class User_Service:IUser_Service
     {
         private ICRUD _crud = new CRUD();
+        private IUser_Operations _user_Operations = new User_Operations();
 
         /// <summary>
         /// Adds an new User to the database.
         /// </summary>
         /// <param name="user_name"></param>
         /// <param name="password"></param>
-        /// /// <param name="first_name"></param>
+        /// <param name="first_name"></param>
         /// <param name="last_name"></param>
-        /// /// <param name="zip_code"></param>
+        /// <param name="zip_code"></param>
         /// <returns></returns>
         public async Task<Generic_ResultSet<User_ResultSet>> AddUser(string user_name, string password, string first_name, string last_name, string zip_code)
         {
@@ -47,7 +49,7 @@ namespace Business.Services.Implementation
                     password = User.Password,
                     first_name = User.FirstName,
                     last_name = User.LastName,
-                    zip_code = User.ZipCode
+                    city_name = User.ZipCode
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
@@ -75,9 +77,8 @@ namespace Business.Services.Implementation
             Generic_ResultSet<List<User_ResultSet>> result = new();
             try
             {
-                //GET ALL GRADES
-                List<User> Users = await _crud.ReadAll<User>();
-                //MAP DB GRADE RESULTS
+                //List<User> Users = await _crud.ReadAll<User>();
+                List<User> Users = await _user_Operations.ReadAllUsers();
                 result.result_set = new List<User_ResultSet>();
                 Users.ForEach(u => {
                     result.result_set.Add(new User_ResultSet
@@ -86,7 +87,7 @@ namespace Business.Services.Implementation
                         password = u.Password,
                         first_name = u.FirstName,
                         last_name = u.LastName,
-                        zip_code = u.ZipCode
+                        city_name = u.City.CityName
                     });
                 });
 
@@ -126,7 +127,7 @@ namespace Business.Services.Implementation
                         password = User.Password,
                         first_name = User.FirstName,
                         last_name = User.LastName,
-                        zip_code = User.ZipCode
+                        city_name = User.ZipCode
                     };
 
                     //SET SUCCESSFUL RESULT VALUES
@@ -146,6 +147,44 @@ namespace Business.Services.Implementation
                 result.exception = exception;
                 result.userMessage = "Username doesn't match password";
                 result.internalMessage = string.Format("ERROR: LOGIC.Services.Implementation.User_Service: GetSingleUser(): {0}", exception.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Deletes selected User that exist in the database
+        /// </summary>
+        /// <param name="user_name"></param>
+        /// <returns></returns>
+        public async Task<Generic_ResultSet<User_ResultSet>> DeleteUser(string user_name)
+        {
+            Generic_ResultSet<User_ResultSet> result = new();
+            try
+            {
+                User User = await _crud.Read<User>(user_name);
+                bool action = await _crud.Delete<User>(user_name);
+
+                User_ResultSet userDeleted = new User_ResultSet
+                {
+                    user_name = User.UserName,
+                    password = User.Password,
+                    first_name = User.FirstName,
+                    last_name = User.LastName,
+                    city_name = User.ZipCode
+                };
+
+                //SET SUCCESSFUL RESULT VALUES
+                result.userMessage = string.Format("Deleted user {0} successfully", user_name);
+                result.internalMessage = "LOGIC.Services.Implementation.User_Service: DeleteUser() method executed successfully.";
+                result.result_set = userDeleted;
+                result.success = true;
+            }
+            catch (Exception exception)
+            {
+                //SET FAILED RESULT VALUES
+                result.exception = exception;
+                result.userMessage = "Failed to delete";
+                result.internalMessage = string.Format("ERROR: LOGIC.Services.Implementation.User_Service: DeleteUser(): {0}", exception.Message);
             }
             return result;
         }

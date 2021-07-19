@@ -13,5 +13,6 @@ namespace Business.Services.Interfaces
         Task<Generic_ResultSet<User_ResultSet>> AddUser(string user_name, string password, string first_name, string last_name, string zip_code);
         Task<Generic_ResultSet<List<User_ResultSet>>> GetAllUsers();
         Task<Generic_ResultSet<User_ResultSet>> GetSingleUser(string user_name, string password);
+        Task<Generic_ResultSet<User_ResultSet>> DeleteUser(string user_name);
     }
 }
