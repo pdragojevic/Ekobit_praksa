@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using Business.Services.Interfaces;
+using Business.Services.Models.User;
+using Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SimpleLoginAPI.Models.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,59 +25,31 @@ namespace SimpleLoginAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<User_Object>> AddUser(User_Object user)
+        public async Task<ActionResult<UserForCreateDto>> AddUser(UserForCreateDto user)
         {
-            var result = await _user_service.AddUser(user.UserName, user.Password, user.FirstName, user.LastName, user.ZipCode);
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            var result = await _user_service.AddUser(user.user_name, user.password, user.first_name, user.last_name, user.zip_code);
+            return Ok(result);
         }
 
         [HttpGet]
-        public async Task<ActionResult<User_Object>> GetAllUsers()
+        public async Task<ActionResult<List<UserDto>>> GetAllUsers()
         {
             var result = await _user_service.GetAllUsers();
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            return Ok(result);
         }
 
         [HttpGet("{user_name}")]
-        public async Task<ActionResult<User_Object>> Login(string user_name, string password)
+        public async Task<ActionResult<UserDto>> Login(string user_name, string password)
         {
             var result = await _user_service.GetSingleUser(user_name, password);
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return Unauthorized(result);
-            }
+            return result;
         }
 
         [HttpDelete("{user_name}")]
         public async Task<ActionResult> Delete(string user_name)
         {
             var result = await _user_service.DeleteUser(user_name);
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            return Ok(result);
         }
     }
 }

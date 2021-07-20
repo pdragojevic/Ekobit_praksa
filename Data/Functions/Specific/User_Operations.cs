@@ -26,5 +26,21 @@ namespace Data.Functions.Specific
                 throw;
             }
         }
+
+        public Entities.User ReadUser(string user_name)
+        {
+            try
+            {
+                using (LoginDBContext context = new LoginDBContext(LoginDBContext.Options.DatabaseOptions))
+                {
+                    Entities.User user = context.Users.Include(c => c.City).FirstOrDefault(u => u.UserName == user_name);
+                    return user;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

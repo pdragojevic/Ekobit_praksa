@@ -15,7 +15,8 @@ namespace Business.Mappings
         public MappingProfile()
         {
             CreateMap<City, CityDto>();
-            CreateMap<User, UserDto>();
+            CreateMap<User, UserDto>()
+                .ForMember(dest => dest.city_name, opt => opt.MapFrom(src => src.City.CityName));
             CreateMap<User, UserForCreateDto>();
         }
     }
