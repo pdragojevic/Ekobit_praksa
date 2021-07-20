@@ -1,7 +1,8 @@
-﻿using Business.Services.Interfaces;
+﻿using AutoMapper;
+using Business.Services.Interfaces;
+using Business.Services.Models.City;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SimpleLoginAPI.Models.City;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,51 +15,33 @@ namespace SimpleLoginAPI.Controllers
     public class CityController : ControllerBase
     {
         private ICity_Service _city_service;
-        public CityController(ICity_Service city_Service)
+        protected IMapper _mapper { get; }
+
+        public CityController(ICity_Service city_Service, IMapper mapper)
         {
             _city_service = city_Service;
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<ActionResult<City_Object>> AddCity(City_Object city)
+        public async Task<ActionResult<CityDto>> AddCity(CityDto city)
         {
-            var result = await _city_service.AddCity(city.ZipCode, city.CityName);
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            var City = await _city_service.AddCity(city.zip_code, city.city_name);
+            return Ok(_mapper.Map<CityDto>(City));
         }
 
         [HttpGet]
-        public async Task<ActionResult<City_Object>> GetAllCities()
+        public async Task<ActionResult<IEnumerable<CityDto>>> GetAllCities()
         {
-            var result = await _city_service.GetAllCities();
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            var cities = await _city_service.GetAllCities();
+            return Ok(_mapper.Map<List<CityDto>>(cities));
         }
 
         [HttpDelete("{zip_code}")]
-        public async Task<ActionResult> Delete(string zip_code)
+        public async Task<ActionResult<CityDto>> Delete(string zip_code)
         {
-            var result = await _city_service.DeleteCity(zip_code);
-            switch (result.success)
-            {
-                case true:
-                    return Ok(result);
-
-                case false:
-                    return StatusCode(500, result);
-            }
+            var City = await _city_service.DeleteCity(zip_code);
+            return Ok(_mapper.Map<CityDto>(City));
         }
     }
 }

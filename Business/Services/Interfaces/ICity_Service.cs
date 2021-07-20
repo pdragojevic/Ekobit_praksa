@@ -1,5 +1,6 @@
 ﻿using Business.Services.Models;
 using Business.Services.Models.City;
+using Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace Business.Services.Interfaces
 {
     public interface ICity_Service
     {
-        Task<Generic_ResultSet<City_ResultSet>> AddCity(string zip_code, string city_name);
-        Task<Generic_ResultSet<List<City_ResultSet>>> GetAllCities();
-        Task<Generic_ResultSet<City_ResultSet>> DeleteCity(string zip_code);
+        Task<City> AddCity(string zip_code, string city_name);
+        Task<IEnumerable<City>> GetAllCities();
+        Task<City> DeleteCity(string zip_code);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Business.Services.Interfaces;
+﻿using AutoMapper;
+using Business.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleLoginAPI.Models.User;
@@ -14,9 +15,12 @@ namespace SimpleLoginAPI.Controllers
     public class UserController : ControllerBase
     {
         private IUser_Service _user_service;
-        public UserController (IUser_Service user_Service)
+        private readonly IMapper _mapper;
+
+        public UserController (IUser_Service user_Service, IMapper mapper)
         {
             _user_service = user_Service;
+            _mapper = mapper;
         }
 
         [HttpPost]

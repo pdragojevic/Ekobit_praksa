@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services.Models.User
 {
-    public class User_ResultSet
+    public class UserDto
     {
         public string user_name { get; set; }
         public string password { get; set; }

@@ -1,5 +1,11 @@
 using Business.Services.Implementation;
 using Business.Services.Interfaces;
+using Business.Mappings;
+using Data.DataContext;
+using Data.Entities;
+using Data.Functions.CRUD;
+using Data.Functions.Interfaces;
+using Data.Functions.Specific;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,9 +40,17 @@ namespace SimpleLoginAPI
             services.AddControllers();
             services.AddSwagger();
 
+            services.AddDbContext<LoginDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddAutoMapper(typeof(MappingProfile));
+
             #region CUSTOM SERVICES
             services.AddScoped<IUser_Service, User_Service>();
             services.AddScoped<ICity_Service, City_Service>();
+            services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
+            services.AddScoped<IGenericRepository<City>, GenericRepository<City>>();
+            services.AddScoped<IUser_Operations, User_Operations>();
             #endregion
 
         }

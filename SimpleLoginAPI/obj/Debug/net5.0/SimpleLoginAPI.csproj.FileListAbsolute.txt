@@ -200,3 +200,5 @@ C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\bin\Debug\net5.0\Data
 C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\bin\Debug\net5.0\Business.dll
 C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\bin\Debug\net5.0\Business.pdb
 C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.csproj.AssemblyReference.cache
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\pdragojevic\OneDrive\Ekobit_praksa\SimpleLoginAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

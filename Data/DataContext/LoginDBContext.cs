@@ -3,25 +3,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.DataContext
 {
-    public class DatabaseContext:DbContext
+    public class LoginDBContext:DbContext
     {
         public class OptionsBuild
         {
             public OptionsBuild()
             {
                 Settings = new AppConfiguration();
-                OpsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+                OpsBuilder = new DbContextOptionsBuilder<LoginDBContext>();
                 OpsBuilder.UseSqlServer(Settings.SqlConnectionString);
                 DatabaseOptions = OpsBuilder.Options;
             }
-            public DbContextOptionsBuilder<DatabaseContext> OpsBuilder { get; set; }
-            public DbContextOptions<DatabaseContext> DatabaseOptions { get; set; }
+            public DbContextOptionsBuilder<LoginDBContext> OpsBuilder { get; set; }
+            public DbContextOptions<LoginDBContext> DatabaseOptions { get; set; }
             private AppConfiguration Settings { get; set; }
         }
 
         public static OptionsBuild Options = new();
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options): base(options) { }
+        public LoginDBContext(DbContextOptions<LoginDBContext> options): base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }

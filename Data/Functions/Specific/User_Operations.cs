@@ -15,7 +15,7 @@ namespace Data.Functions.Specific
         {
             try
             {
-                using (DatabaseContext context = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
+                using (LoginDBContext context = new LoginDBContext(LoginDBContext.Options.DatabaseOptions))
                 {
                     List<Entities.User> users = await context.Users.Include(c => c.City).ToListAsync();
                     return users;

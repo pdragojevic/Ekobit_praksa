@@ -10,13 +10,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Business.Services.Implementation
 {
     public class User_Service:IUser_Service
     {
-        private ICRUD _crud = new CRUD();
-        private IUser_Operations _user_Operations = new User_Operations();
+        private IGenericRepository<User> repository;
+        private IUser_Operations _user_Operations;
+        private readonly IMapper _mapper;
+
+        public User_Service(IGenericRepository<User> repository, IUser_Operations user_Operations, IMapper mapper)
+        {
+            this.repository = repository;
+            _user_Operations = user_Operations;
+            _mapper = mapper;
+        }
 
         /// <summary>
         /// Adds an new User to the database.
@@ -27,9 +36,9 @@ namespace Business.Services.Implementation
         /// <param name="last_name"></param>
         /// <param name="zip_code"></param>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<User_ResultSet>> AddUser(string user_name, string password, string first_name, string last_name, string zip_code)
+        public async Task<Generic_ResultSet<UserForCreateDto>> AddUser(string user_name, string password, string first_name, string last_name, string zip_code)
         {
-            Generic_ResultSet<User_ResultSet> result = new();
+            Generic_ResultSet<UserForCreateDto> result = new();
             try
             {
                 User User = new User
@@ -41,15 +50,16 @@ namespace Business.Services.Implementation
                     ZipCode = zip_code
                 };
 
-                User = await _crud.Create<User>(User);
+                repository.Insert(User);
+                repository.Save();
 
-                User_ResultSet userAdded = new User_ResultSet
+                UserForCreateDto userAdded = new UserForCreateDto
                 {
                     user_name = User.UserName,
                     password = User.Password,
                     first_name = User.FirstName,
                     last_name = User.LastName,
-                    city_name = User.ZipCode
+                    zip_code = User.ZipCode
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
@@ -72,16 +82,16 @@ namespace Business.Services.Implementation
         /// Gets all Users that exist in the database
         /// </summary>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<List<User_ResultSet>>> GetAllUsers()
+        public async Task<Generic_ResultSet<List<UserDto>>> GetAllUsers()
         {
-            Generic_ResultSet<List<User_ResultSet>> result = new();
+            Generic_ResultSet<List<UserDto>> result = new();
             try
             {
                 //List<User> Users = await _crud.ReadAll<User>();
                 List<User> Users = await _user_Operations.ReadAllUsers();
-                result.result_set = new List<User_ResultSet>();
+                result.result_set = new List<UserDto>();
                 Users.ForEach(u => {
-                    result.result_set.Add(new User_ResultSet
+                    result.result_set.Add(new UserDto
                     {
                         user_name = u.UserName,
                         password = u.Password,
@@ -112,16 +122,16 @@ namespace Business.Services.Implementation
         /// <param name="user_name"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<User_ResultSet>> GetSingleUser(string user_name, string password)
+        public async Task<Generic_ResultSet<UserDto>> GetSingleUser(string user_name, string password)
         {
-            Generic_ResultSet<User_ResultSet> result = new();
+            Generic_ResultSet<UserDto> result = new();
             try
             {
-                User User = await _crud.Read<User>(user_name);
+                User User = repository.GetById(user_name);
 
                 if(User.Password == password)
                 {
-                    User_ResultSet userRetrived = new User_ResultSet
+                    UserDto userRetrived = new UserDto
                     {
                         user_name = User.UserName,
                         password = User.Password,
@@ -156,21 +166,22 @@ namespace Business.Services.Implementation
         /// </summary>
         /// <param name="user_name"></param>
         /// <returns></returns>
-        public async Task<Generic_ResultSet<User_ResultSet>> DeleteUser(string user_name)
+        public async Task<Generic_ResultSet<UserForCreateDto>> DeleteUser(string user_name)
         {
-            Generic_ResultSet<User_ResultSet> result = new();
+            Generic_ResultSet<UserForCreateDto> result = new();
             try
             {
-                User User = await _crud.Read<User>(user_name);
-                bool action = await _crud.Delete<User>(user_name);
+                User User = repository.GetById(user_name);
+                repository.Delete(user_name);
+                repository.Save();
 
-                User_ResultSet userDeleted = new User_ResultSet
+                UserForCreateDto userDeleted = new UserForCreateDto
                 {
                     user_name = User.UserName,
                     password = User.Password,
                     first_name = User.FirstName,
                     last_name = User.LastName,
-                    city_name = User.ZipCode
+                    zip_code = User.ZipCode
                 };
 
                 //SET SUCCESSFUL RESULT VALUES
