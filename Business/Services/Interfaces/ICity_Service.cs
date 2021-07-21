@@ -11,8 +11,8 @@ namespace Business.Services.Interfaces
 {
     public interface ICity_Service
     {
-        Task<City> AddCity(string zip_code, string city_name);
-        Task<IEnumerable<City>> GetAllCities();
-        Task<City> DeleteCity(string zip_code);
+        Task<CityDto> AddCity(CityDto city);
+        Task<IEnumerable<CityDto>> GetAllCities();
+        Task<CityDto> DeleteCity(string zip_code);
     }
 }

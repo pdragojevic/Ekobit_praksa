@@ -8,7 +8,7 @@ namespace Business.Services.Models.City
 {
     public class CityDto
     {
-        public string zip_code { get; set; }
-        public string city_name { get; set; }
+        public string ZipCode { get; set; }
+        public string CityName { get; set; }
     }
 }

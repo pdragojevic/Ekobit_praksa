@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Business.Services.Interfaces;
+﻿using Business.Services.Interfaces;
 using Business.Services.Models.User;
 using Data.Entities;
 using Microsoft.AspNetCore.Http;
@@ -16,18 +15,16 @@ namespace SimpleLoginAPI.Controllers
     public class UserController : ControllerBase
     {
         private IUser_Service _user_service;
-        private readonly IMapper _mapper;
 
-        public UserController (IUser_Service user_Service, IMapper mapper)
+        public UserController(IUser_Service user_Service)
         {
             _user_service = user_Service;
-            _mapper = mapper;
         }
 
         [HttpPost]
         public async Task<ActionResult<UserForCreateDto>> AddUser(UserForCreateDto user)
         {
-            var result = await _user_service.AddUser(user.user_name, user.password, user.first_name, user.last_name, user.zip_code);
+            var result = await _user_service.AddUser(user);
             return Ok(result);
         }
 

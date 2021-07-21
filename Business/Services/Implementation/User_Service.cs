@@ -14,10 +14,10 @@ using AutoMapper;
 
 namespace Business.Services.Implementation
 {
-    public class User_Service:IUser_Service
+    public class User_Service : IUser_Service
     {
-        private IGenericRepository<User> repository;
-        private IUser_Operations _user_Operations;
+        private readonly IGenericRepository<User> repository;
+        private readonly IUser_Operations _user_Operations;
         private readonly IMapper _mapper;
 
         public User_Service(IGenericRepository<User> repository, IUser_Operations user_Operations, IMapper mapper)
@@ -30,22 +30,20 @@ namespace Business.Services.Implementation
         /// <summary>
         /// Adds an new User to the database.
         /// </summary>
-        /// <param name="user_name"></param>
-        /// <param name="password"></param>
-        /// <param name="first_name"></param>
-        /// <param name="last_name"></param>
-        /// <param name="zip_code"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<UserForCreateDto> AddUser(string user_name, string password, string first_name, string last_name, string zip_code)
+        public async Task<UserForCreateDto> AddUser(UserForCreateDto user)
         {
-            User User = new User
-            {
-                UserName = user_name,
-                Password = password,
-                FirstName = first_name,
-                LastName = last_name,
-                ZipCode = zip_code
-            };
+            //User User = new User
+            //{
+            //    UserName = user.UserName,
+            //    Password = user.Password,
+            //    FirstName = user.FirstName,
+            //    LastName = user.LastName,
+            //    ZipCode = user.ZipCode
+            //};
+
+            User User = _mapper.Map<User>(user);
 
             repository.Insert(User);
             repository.Save();
@@ -94,14 +92,6 @@ namespace Business.Services.Implementation
 
             if (User.Password == password)
             {
-                //UserDto userRetrived = new UserDto
-                //{
-                //   user_name = User.UserName,
-                //    password = User.Password,
-                //    first_name = User.FirstName,
-                //    last_name = User.LastName,
-                //    city_name = User.ZipCode
-                //};
                 return _mapper.Map<UserDto>(User);
             }
             UserDto emptyUser = new UserDto();
@@ -119,14 +109,6 @@ namespace Business.Services.Implementation
             repository.Delete(user_name);
             repository.Save();
 
-            //UserForCreateDto userDeleted = new UserForCreateDto
-            //{
-            //    user_name = User.UserName,
-            //    password = User.Password,
-            //    first_name = User.FirstName,
-            //    last_name = User.LastName,
-            //    zip_code = User.ZipCode
-            //};
             return _mapper.Map<UserForCreateDto>(User);
         }
     }

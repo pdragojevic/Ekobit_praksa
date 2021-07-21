@@ -14,10 +14,13 @@ namespace Business.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<City, CityDto>();
+            CreateMap<City, CityDto>()
+                .ReverseMap();
             CreateMap<User, UserDto>()
-                .ForMember(dest => dest.city_name, opt => opt.MapFrom(src => src.City.CityName));
-            CreateMap<User, UserForCreateDto>();
+                .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City.CityName))
+                .ReverseMap();
+            CreateMap<User, UserForCreateDto>()
+                .ReverseMap();
         }
     }
 }

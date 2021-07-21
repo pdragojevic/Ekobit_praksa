@@ -10,36 +10,33 @@ using System.Threading.Tasks;
 using Data.Entities;
 using Business.Services.Models.City;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Business.Services.Implementation
 {
     public class City_Service : ICity_Service
     {
-        private IGenericRepository<City> repository;
+        private readonly IGenericRepository<City> repository;
+        private readonly IMapper _mapper;
 
-        public City_Service(IGenericRepository<City> repository)
+        public City_Service(IGenericRepository<City> repository, IMapper mapper)
         {
             this.repository = repository;
+            _mapper = mapper;
         }
 
         /// <summary>
         /// Adds an new City to the database.
         /// </summary>
-        /// <param name="zip_code"></param>
-        /// <param name="city_name"></param>
         /// <returns></returns>
-        public async Task<City> AddCity(string zip_code, string city_name)
+        public async Task<CityDto> AddCity(CityDto city)
         {
-            City City = new City
-            {
-                ZipCode = zip_code,
-                CityName = city_name
-            };
+            City City = _mapper.Map<City>(city);
 
             repository.Insert(City);
             repository.Save();
 
-            return City;
+            return _mapper.Map<CityDto>(City);
         }
 
 
@@ -47,11 +44,13 @@ namespace Business.Services.Implementation
         /// Gets all Users that exist in the database
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<City>> GetAllCities()
+        public async Task<IEnumerable<CityDto>> GetAllCities()
         {
-            return await repository
+            var cities = await repository
                 .GetAll()
                 .ToListAsync();
+
+            return _mapper.Map<List<CityDto>>(cities);
         }
 
 
@@ -60,14 +59,14 @@ namespace Business.Services.Implementation
         /// </summary>
         /// <param name="zip_code"></param>
         /// <returns></returns>
-        public async Task<City> DeleteCity(string zip_code)
+        public async Task<CityDto> DeleteCity(string zip_code)
         {
             City City = repository.GetById(zip_code);
 
             repository.Delete(zip_code);
             repository.Save();
 
-            return City;
+            return _mapper.Map<CityDto>(City);
         }
     }
 }

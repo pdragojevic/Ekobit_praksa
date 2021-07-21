@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Services.Interfaces;
 using Business.Services.Models.City;
+using Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,22 +27,22 @@ namespace SimpleLoginAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CityDto>> AddCity(CityDto city)
         {
-            var City = await _city_service.AddCity(city.zip_code, city.city_name);
-            return Ok(_mapper.Map<CityDto>(City));
+            var City = await _city_service.AddCity(city);
+            return Ok(City);
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CityDto>>> GetAllCities()
         {
             var cities = await _city_service.GetAllCities();
-            return Ok(_mapper.Map<List<CityDto>>(cities));
+            return Ok(cities);
         }
 
         [HttpDelete("{zip_code}")]
         public async Task<ActionResult<CityDto>> Delete(string zip_code)
         {
             var City = await _city_service.DeleteCity(zip_code);
-            return Ok(_mapper.Map<CityDto>(City));
+            return Ok(City);
         }
     }
 }

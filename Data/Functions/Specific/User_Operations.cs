@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Functions.Specific
 {
-    public class User_Operations:IUser_Operations
+    public class User_Operations : IUser_Operations
     {
         public async Task<List<Entities.User>> ReadAllUsers()
         {

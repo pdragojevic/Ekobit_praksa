@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "di/tvp171nGPd4EvmVJSiVsBDbNm+GXV7A8uW12TCMT9XD/hUpj8KCIEBBRw6qgzX6O0GOFmXVfycchci7vvLg==",
+  "dgSpecHash": "x9mg/4fbzJRrAtsg6WYTpJ3JSywLKpMjwZp2Bh0KbVPa5E2m1bpo4dYgK2vwSZJF5FBCXPffjDK02UlbtpQNLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pdragojevic\\OneDrive\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
+  "projectFilePath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pdragojevic\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pdragojevic\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
