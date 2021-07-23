@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kt3nbISinyExV4TlUw2A9fmbL64kWZ6v7eLs+v3ydFGc0TuZYs58K69KOAAWRsxEe6v8EzjVODzUdRN8dxTC0Q==",
+  "dgSpecHash": "5Yy0zpiPv++t8JNfzxYAr3/kdLGLLao8j9oSbAxf+hx+iPCdX6WLXwUHsbBdGyIcZKUk12Rdqm9gICUEa9hMow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj",
+  "projectFilePath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pdragojevic\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\pdragojevic\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

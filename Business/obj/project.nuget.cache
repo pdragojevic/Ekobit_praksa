@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "niZLN78QgsSMA+y8NC/x7/4FfIHHBv8AmUlcRlHkEM5eD+0LKLKBrWyEMDpaCUc+CbsgWFKqE60+5zp9s4zH9A==",
+  "dgSpecHash": "EWibRE/rQQeUN8VuiZguFtPf/khDR9M0yPgkmu5oh3Ps3pSA/T+78Kfw9xc+JP05pr/RZFvHVsQIk9mbKexGGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj",
+  "projectFilePath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pdragojevic\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pdragojevic\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

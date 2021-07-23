@@ -1,16 +1,11 @@
-﻿using Business.Services.Interfaces;
-using Business.Services.Models;
-using Data.Functions.CRUD;
-using Data.Functions.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data.Entities;
+﻿using AutoMapper;
+using Business.Services.Interfaces;
 using Business.Services.Models.City;
+using Data.Entities;
+using Data.Functions.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Business.Services.Implementation
 {

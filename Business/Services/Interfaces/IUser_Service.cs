@@ -12,7 +12,7 @@ namespace Business.Services.Interfaces
     {
         Task<UserForCreateDto> AddUser(UserForCreateDto user);
         Task<List<UserDto>> GetAllUsers();
-        Task<UserDto> GetSingleUser(string user_name, string password);
+        Task<UserDto> GetSingleUser(string user_name);
         Task<UserForCreateDto> DeleteUser(string user_name);
     }
 }

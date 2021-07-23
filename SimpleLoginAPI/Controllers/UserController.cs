@@ -16,7 +16,7 @@ namespace SimpleLoginAPI.Controllers
     {
         private IUser_Service _user_service;
 
-        public UserController(IUser_Service user_Service)
+        public UserController (IUser_Service user_Service)
         {
             _user_service = user_Service;
         }
@@ -36,10 +36,10 @@ namespace SimpleLoginAPI.Controllers
         }
 
         [HttpGet("{user_name}")]
-        public async Task<ActionResult<UserDto>> Login(string user_name, string password)
+        public async Task<ActionResult<UserDto>> GetUser(string user_name)
         {
-            var result = await _user_service.GetSingleUser(user_name, password);
-            return result;
+            var result = await _user_service.GetSingleUser(user_name);
+            return Ok(result);
         }
 
         [HttpDelete("{user_name}")]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj": {}
+    "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\SimpleLoginAPI\\SimpleLoginAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj": {
+    "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj",
+        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\pdragojevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\obj\\",
+        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pdragojevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj"
+              "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj": {
+    "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\pdragojevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Data\\obj\\",
+        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pdragojevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj": {
+    "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\SimpleLoginAPI\\SimpleLoginAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
+        "projectUniqueName": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
         "projectName": "SimpleLoginAPI",
-        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
+        "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\SimpleLoginAPI\\SimpleLoginAPI.csproj",
         "packagesPath": "C:\\Users\\pdragojevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\SimpleLoginAPI\\obj\\",
+        "outputPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\SimpleLoginAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pdragojevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -180,8 +180,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Ekobit_praksa\\Business\\Business.csproj"
+              "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj": {
+                "projectPath": "C:\\Users\\pdragojevic\\source\\repos\\Tutorial\\Business\\Business.csproj"
               }
             }
           }
