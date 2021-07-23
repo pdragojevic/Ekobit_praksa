@@ -1,0 +1,9 @@
+<h1>User info</h1>
+
+<div *ngIf="user">
+
+    <h2>{{user.firstName | uppercase}} {{user.lastName | uppercase}}</h2>
+    <div><span>Username: </span>{{user.userName}}</div>
+    <div><span>City: </span>{{user.cityName}}</div>
+  
+</div>

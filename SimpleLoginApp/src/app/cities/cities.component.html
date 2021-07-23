@@ -1,0 +1,16 @@
+<h2>Cities</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Zip code</th>
+            <th>City Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cities">
+            <td>{{city.zipCode}}</td>
+            <td>{{city.cityName}}</td>
+        </tr>
+    </tbody>
+</table>
