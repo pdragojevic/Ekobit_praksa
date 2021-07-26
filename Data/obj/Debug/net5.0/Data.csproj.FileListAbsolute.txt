@@ -4,7 +4,6 @@ C:\Users\pdragojevic\source\repos\Tutorial\Data\bin\Debug\net5.0\Data.runtimecon
 C:\Users\pdragojevic\source\repos\Tutorial\Data\bin\Debug\net5.0\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\bin\Debug\net5.0\ref\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\bin\Debug\net5.0\Data.pdb
-C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
@@ -13,3 +12,4 @@ C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\ref\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.pdb
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache

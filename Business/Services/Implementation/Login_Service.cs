@@ -3,38 +3,38 @@ using Business.Services.Interfaces;
 using Business.Services.Models.User;
 using Data.Entities;
 using Data.Functions.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Business.Services.Implementation
 {
-    public class Login_Service:ILogin_Service
+    public class Login_Service : ILogin_Service
     {
-        private readonly IUser_Operations _user_Operations;
+        private readonly IGenericRepository<User> _repository;
         private readonly IMapper _mapper;
 
-        public Login_Service(IUser_Operations user_Operations, IMapper mapper)
+        public Login_Service(IMapper mapper, IGenericRepository<User> repository)
         {
-            this._user_Operations = user_Operations;
+            _repository = repository;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Gets selected User that exist in the database
+        /// Check if username match password
         /// </summary>
         /// <returns></returns>
         public async Task<UserDto> Login(UserDtoLogin user)
         {
-            User User = _user_Operations.ReadUser(user.UserName);
+            var User = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == user.UserName);
+            UserDto emptyUser = new UserDto();
+
+            if (User == null) { return emptyUser; }
 
             if (User.Password == user.Password)
             {
                 return _mapper.Map<UserDto>(User);
             }
-            UserDto emptyUser = new UserDto();
+
             return emptyUser;
         }
     }

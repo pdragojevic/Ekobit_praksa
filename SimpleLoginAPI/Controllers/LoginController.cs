@@ -1,9 +1,6 @@
 ﻿using Business.Services.Interfaces;
 using Business.Services.Models.User;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SimpleLoginAPI.Controllers
@@ -12,7 +9,7 @@ namespace SimpleLoginAPI.Controllers
     [ApiController]
     public class LoginController : Controller
     {
-        private ILogin_Service _login_service;
+        private readonly ILogin_Service _login_service;
 
         public LoginController(ILogin_Service login_Service)
         {

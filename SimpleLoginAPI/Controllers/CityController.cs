@@ -1,12 +1,7 @@
-﻿using AutoMapper;
-using Business.Services.Interfaces;
+﻿using Business.Services.Interfaces;
 using Business.Services.Models.City;
-using Data.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SimpleLoginAPI.Controllers
@@ -15,13 +10,11 @@ namespace SimpleLoginAPI.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        private ICity_Service _city_service;
-        protected IMapper _mapper { get; }
+        private readonly ICity_Service _city_service;
 
-        public CityController(ICity_Service city_Service, IMapper mapper)
+        public CityController(ICity_Service city_Service)
         {
             _city_service = city_Service;
-            _mapper = mapper;
         }
 
         [HttpPost]

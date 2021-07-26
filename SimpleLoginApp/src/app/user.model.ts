@@ -3,5 +3,6 @@ export class User{
     password:string='';
     firstName:string='';
     lastName:string='';
+    zipCode:string='';
     cityName:string='';
 }

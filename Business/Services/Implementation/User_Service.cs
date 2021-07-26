@@ -11,14 +11,12 @@ namespace Business.Services.Implementation
 {
     public class User_Service : IUser_Service
     {
-        private readonly IGenericRepository<User> repository;
-        private readonly IUser_Operations _user_Operations;
+        private readonly IGenericRepository<User> _repository;
         private readonly IMapper _mapper;
 
-        public User_Service(IGenericRepository<User> repository, IUser_Operations user_Operations, IMapper mapper)
+        public User_Service(IGenericRepository<User> repository, IMapper mapper)
         {
-            this.repository = repository;
-            _user_Operations = user_Operations;
+            _repository = repository;
             _mapper = mapper;
         }
 
@@ -31,8 +29,8 @@ namespace Business.Services.Implementation
         {
             User User = _mapper.Map<User>(user);
 
-            repository.Insert(User);
-            repository.Save();
+            _repository.Insert(User);
+            _repository.Save();
 
             return _mapper.Map<UserForCreateDto>(User);
         }
@@ -43,7 +41,7 @@ namespace Business.Services.Implementation
         /// <returns></returns>
         public async Task<List<UserDto>> GetAllUsers()
         {
-            List<User> Users = await repository.GetAll().Include(c => c.City).ToListAsync();
+            List<User> Users = await _repository.GetAll().Include(c => c.City).ToListAsync();
 
             return _mapper.Map<List<UserDto>>(Users);
         }
@@ -55,7 +53,8 @@ namespace Business.Services.Implementation
         /// <returns></returns>
         public async Task<UserDto> GetSingleUser(string user_name)
         {
-            User User = _user_Operations.ReadUser(user_name);
+            //User User = _user_Operations.ReadUser(user_name);
+            var User = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == user_name);
 
             return _mapper.Map<UserDto>(User);
         }
@@ -67,9 +66,9 @@ namespace Business.Services.Implementation
         /// <returns></returns>
         public async Task<UserForCreateDto> DeleteUser(string user_name)
         {
-            User User = repository.GetById(user_name);
-            repository.Delete(user_name);
-            repository.Save();
+            User User = _repository.GetById(user_name);
+            _repository.Delete(user_name);
+            _repository.Save();
 
             return _mapper.Map<UserForCreateDto>(User);
         }

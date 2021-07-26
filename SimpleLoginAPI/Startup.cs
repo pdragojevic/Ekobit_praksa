@@ -5,7 +5,6 @@ using Data.DataContext;
 using Data.Entities;
 using Data.Functions.CRUD;
 using Data.Functions.Interfaces;
-using Data.Functions.Specific;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +42,6 @@ namespace SimpleLoginAPI
             services.AddScoped<ILogin_Service, Login_Service>();
             services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
             services.AddScoped<IGenericRepository<City>, GenericRepository<City>>();
-            services.AddScoped<IUser_Operations, User_Operations>();
             #endregion
 
             services.AddCors();

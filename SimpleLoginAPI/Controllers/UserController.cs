@@ -1,11 +1,7 @@
 ﻿using Business.Services.Interfaces;
 using Business.Services.Models.User;
-using Data.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SimpleLoginAPI.Controllers
@@ -14,9 +10,9 @@ namespace SimpleLoginAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUser_Service _user_service;
+        private readonly IUser_Service _user_service;
 
-        public UserController (IUser_Service user_Service)
+        public UserController(IUser_Service user_Service)
         {
             _user_service = user_Service;
         }

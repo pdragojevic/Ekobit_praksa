@@ -1,9 +1,5 @@
-﻿using Business.Services.Models;
-using Business.Services.Models.User;
-using System;
+﻿using Business.Services.Models.User;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.Services.Interfaces

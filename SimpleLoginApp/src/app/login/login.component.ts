@@ -11,6 +11,7 @@ import { Service } from 'src/app/shared.service';
 })
 export class LoginComponent implements OnInit {
   loginUser: LoginUser = new LoginUser();
+  errmessage: String;
 
   constructor(public service:Service, private router: Router) { }
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([`/user/`+this.loginUser.username]);
 
       },
-      err => {console.log(err);}
+      err => {this.errmessage = "Wrong username or password. Please try again.";}
     );
   }
 
