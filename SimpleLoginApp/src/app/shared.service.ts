@@ -26,4 +26,8 @@ export class Service {
     return this.http.post(this.baseURL+'/Login', loginUser);
   }
 
+  changePassword(user: User){
+    return this.http.post(`${this.baseURL}/User/${user.userName}`, user)
+  }
+
 }

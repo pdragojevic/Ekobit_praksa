@@ -9,6 +9,7 @@ namespace Business.Services.Interfaces
         Task<UserForCreateDto> AddUser(UserForCreateDto user);
         Task<List<UserDto>> GetAllUsers();
         Task<UserDto> GetSingleUser(string user_name);
+        Task<UserDto> UpdateUser(UserForCreateDto user);
         Task<UserForCreateDto> DeleteUser(string user_name);
     }
 }

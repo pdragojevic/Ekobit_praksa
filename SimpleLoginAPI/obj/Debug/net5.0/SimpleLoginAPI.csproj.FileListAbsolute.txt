@@ -56,7 +56,6 @@ C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\Simpl
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.AssemblyInfoInputs.cache
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.AssemblyInfo.cs
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.csproj.CoreCompileInputs.cache
-C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\staticwebassets\SimpleLoginAPI.StaticWebAssets.Manifest.cache
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\staticwebassets\SimpleLoginAPI.StaticWebAssets.xml
@@ -67,3 +66,4 @@ C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\Simpl
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\ref\SimpleLoginAPI.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.pdb
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.genruntimeconfig.cache
+C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.MvcApplicationPartsAssemblyInfo.cs

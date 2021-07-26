@@ -38,6 +38,13 @@ namespace SimpleLoginAPI.Controllers
             return Ok(result);
         }
 
+        [HttpPost("{user_name}")]
+        public async Task<ActionResult<UserDto>> UpdateUser(UserForCreateDto user)
+        {
+            var result = await _user_service.UpdateUser(user);
+            return Ok(result);
+        }
+
         [HttpDelete("{user_name}")]
         public async Task<ActionResult> Delete(string user_name)
         {

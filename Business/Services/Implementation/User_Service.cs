@@ -60,6 +60,21 @@ namespace Business.Services.Implementation
         }
 
         /// <summary>
+        /// Updates User that exist in the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<UserDto> UpdateUser(UserForCreateDto user)
+        {
+            User User = _mapper.Map<User>(user);
+
+            _repository.Update(User);
+            _repository.Save();
+            var ChangedUser = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == User.UserName);
+
+            return _mapper.Map<UserDto>(ChangedUser);
+        }
+
+        /// <summary>
         /// Deletes selected User that exist in the database
         /// </summary>
         /// <param name="user_name"></param>
