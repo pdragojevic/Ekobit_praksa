@@ -69,9 +69,8 @@ namespace Business.Services.Implementation
 
             _repository.Update(User);
             _repository.Save();
-            var ChangedUser = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == User.UserName);
 
-            return _mapper.Map<UserDto>(ChangedUser);
+            return _mapper.Map<UserDto>(User);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace SimpleLoginAPI.Controllers
         public async Task<ActionResult<UserDto>> Login(UserDtoLogin user)
         {
             var result = await _login_service.Login(user);
-            if (result.UserName != null) return Ok(result);
+            if (result != null) return Ok(result);
             else return Unauthorized();
         }
     }

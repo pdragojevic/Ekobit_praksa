@@ -25,17 +25,10 @@ namespace Business.Services.Implementation
         /// <returns></returns>
         public async Task<UserDto> Login(UserDtoLogin user)
         {
-            var User = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == user.UserName);
-            UserDto emptyUser = new UserDto();
+            var User = await _repository.GetAll()
+                .FirstOrDefaultAsync(u => u.UserName == user.UserName && u.Password == user.Password);
 
-            if (User == null) { return emptyUser; }
-
-            if (User.Password == user.Password)
-            {
-                return _mapper.Map<UserDto>(User);
-            }
-
-            return emptyUser;
+            return _mapper.Map<UserDto>(User);
         }
     }
 }

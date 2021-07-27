@@ -12,3 +12,4 @@ C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\ref\Data.dll
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.pdb
 C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+C:\Users\pdragojevic\source\repos\Tutorial\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
