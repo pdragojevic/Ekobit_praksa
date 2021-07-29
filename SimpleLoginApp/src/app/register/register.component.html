@@ -1,0 +1,50 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+    <div id="register">
+        <div class="container">
+            <div id="register-row" class="row justify-content-center align-items-center">
+                <div id="register-column" class="col-md-6">
+                    <div id="register-box" class="col-md-12">
+                        <form id="register-form" class="form" action="" #form="ngForm" (submit)="onRegister(form)">
+                            <h3 class="text-center text-info">Register</h3>
+                            <div class="form-group">
+                                <label for="firstName" class="text-info">First Name:</label><br>
+                                <input type="text" name="firstName" id="firstName" class="form-control"
+                                #firstName="ngModel" [(ngModel)]="user.firstName">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="text-info">Last Name:</label><br>
+                                <input type="text" name="lastName" id="lastName" class="form-control"
+                                #lastName="ngModel" [(ngModel)]="user.lastName">
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode" class="text-info">City:</label><br>
+                                <select class="form-control" [(ngModel)]="user.zipCode" name="zipCode" #zipCode="ngModel">
+                                <option *ngFor="let city of cities" value="{{city.zipCode}}">{{city.cityName}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="userName" class="form-control"
+                                #userName="ngModel" [(ngModel)]="user.userName">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control"
+                                #password="ngModel" [(ngModel)]="user.password">
+                                <input type="checkbox" (click)="showPassword()">Show Password
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Register">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

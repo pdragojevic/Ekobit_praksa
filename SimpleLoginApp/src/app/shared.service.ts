@@ -26,8 +26,21 @@ export class Service {
     return this.http.post(this.baseURL+'/Login', loginUser);
   }
 
+  register(user: User){
+    return this.http.post(this.baseURL+'/User', user);
+  }
+
   changePassword(user: User){
     return this.http.put(this.baseURL+'/User', user)
+  }
+
+  showPassword(){
+    var x = <HTMLInputElement>document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
   }
 
 }

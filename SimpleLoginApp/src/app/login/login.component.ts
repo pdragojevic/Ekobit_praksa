@@ -18,14 +18,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form:NgForm){
+  onLogin(form:NgForm){
     this.service.login(this.loginUser).subscribe(
       res =>{
-        this.router.navigate([`/user/`+this.loginUser.username]);
+        this.router.navigate([`/user/`+this.loginUser.userName]);
 
       },
       err => {this.errmessage = "Wrong username or password. Please try again.";}
     );
+  }
+
+  showPassword(){
+    this.service.showPassword();
   }
 
 }

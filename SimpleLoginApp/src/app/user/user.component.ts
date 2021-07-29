@@ -41,4 +41,8 @@ export class UserComponent implements OnInit {
     );
   }
 
+  showPassword(){
+    this.service.showPassword();
+  }
+
 }
