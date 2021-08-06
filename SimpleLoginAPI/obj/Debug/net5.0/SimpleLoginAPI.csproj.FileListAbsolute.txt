@@ -26,7 +26,6 @@ C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Micro
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -67,3 +66,4 @@ C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\ref\S
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.pdb
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.genruntimeconfig.cache
 C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\obj\Debug\net5.0\SimpleLoginAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pdragojevic\source\repos\Tutorial\SimpleLoginAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

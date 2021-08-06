@@ -1,10 +1,10 @@
-﻿using Business.Services.Models.User;
+﻿using Business.Services.Models.Login;
 using System.Threading.Tasks;
 
 namespace Business.Services.Interfaces
 {
     public interface ILogin_Service
     {
-        Task<UserDto> Login(UserDtoLogin user);
+        Task<AuthenticateResponse> Login(AuthenticateRequest model);
     }
 }

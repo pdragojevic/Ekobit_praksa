@@ -1,4 +1,5 @@
 ﻿using Business.Services.Interfaces;
+using Business.Services.Models.Login;
 using Business.Services.Models.User;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,10 +17,10 @@ namespace SimpleLoginAPI.Controllers
             _login_service = login_Service;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<UserDto>> Login(UserDtoLogin user)
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<UserDto>> Login(AuthenticateRequest model)
         {
-            var result = await _login_service.Login(user);
+            var result = await _login_service.Login(model);
             if (result != null) return Ok(result);
             else return Unauthorized();
         }

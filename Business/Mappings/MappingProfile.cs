@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Services.Models.City;
+using Business.Services.Models.Login;
 using Business.Services.Models.User;
 using Data.Entities;
 
@@ -15,6 +16,8 @@ namespace Business.Mappings
                 .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City.CityName))
                 .ReverseMap();
             CreateMap<User, UserForCreateDto>()
+                .ReverseMap();
+            CreateMap<User, AuthenticateResponse>()
                 .ReverseMap();
         }
     }

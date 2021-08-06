@@ -19,11 +19,16 @@ export class Service {
 
   getUser(username:string): Observable<User>{
     const url = `${this.baseURL}/User/${username}`;
-    return this.http.get<User>(url);
+    return this.http.get<User>(url
+      , {
+      headers: new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": String(localStorage.getItem("jwt"))})
+    });
   }
 
   login(loginUser: LoginUser){
-    return this.http.post(this.baseURL+'/Login', loginUser);
+    return this.http.post(this.baseURL+'/Login/authenticate', loginUser);
   }
 
   register(user: User){

@@ -3,6 +3,7 @@ import { Service } from '../shared.service';
 import { User } from '../user.model';
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,7 @@ export class UserComponent implements OnInit {
   newPassword:string='';
   successMessage:string='';
 
-  constructor(public service:Service, private route: ActivatedRoute,
+  constructor(private jwtHelper: JwtHelperService, public service:Service, private route: ActivatedRoute,
      private router: Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -24,9 +25,15 @@ export class UserComponent implements OnInit {
 
   getUser(): void {
     let username = this.route.snapshot.paramMap.get("username");
-    if(username){
-      this.service.getUser(username)
-      .subscribe(user => this.user = user);
+    const token = localStorage.getItem("jwt");
+    let decodeUsername;
+    if (token && !this.jwtHelper.isTokenExpired(token)){
+      decodeUsername = this.jwtHelper.decodeToken(token).UserName;
+    }
+    if(username && username == decodeUsername){
+      this.service.getUser(username).subscribe(user => this.user = user);
+    }else{
+      this.router.navigate(["/login"]);
     }
   }
 
@@ -44,5 +51,10 @@ export class UserComponent implements OnInit {
   showPassword(){
     this.service.showPassword();
   }
+
+  logout() {
+    localStorage.removeItem("jwt");
+    this.router.navigate(["/login"]);
+ }
 
 }

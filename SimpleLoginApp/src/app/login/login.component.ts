@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit {
   onLogin(form:NgForm){
     this.service.login(this.loginUser).subscribe(
       res =>{
+        const token = (<any>res).token;
+        console.log('token is ' + token);
+        localStorage.setItem("jwt", token);
         this.router.navigate([`/user/`+this.loginUser.userName]);
-
       },
       err => {this.errmessage = "Wrong username or password. Please try again.";}
     );

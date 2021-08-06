@@ -53,7 +53,6 @@ namespace Business.Services.Implementation
         /// <returns></returns>
         public async Task<UserDto> GetSingleUser(string user_name)
         {
-            //User User = _user_Operations.ReadUser(user_name);
             var User = await _repository.GetAll().Include(c => c.City).FirstOrDefaultAsync(u => u.UserName == user_name);
 
             return _mapper.Map<UserDto>(User);

@@ -23,8 +23,7 @@ export class RegisterComponent implements OnInit {
   onRegister(form:NgForm){
     this.service.register(this.user).subscribe(
       res =>{
-        this.router.navigate([`/user/`+this.user.userName]);
-
+        this.router.navigate(["/login"]);
       },
       err => {}
     );

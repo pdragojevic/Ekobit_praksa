@@ -1,7 +1,9 @@
-﻿using Business.Services.Interfaces;
+﻿using Business.JWT;
+using Business.Services.Interfaces;
 using Business.Services.Models.User;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SimpleLoginAPI.Controllers
@@ -32,8 +34,11 @@ namespace SimpleLoginAPI.Controllers
         }
 
         [HttpGet("{user_name}")]
+        [Authorize]
         public async Task<ActionResult<UserDto>> GetUser(string user_name)
         {
+
+            Thread.Sleep(200);
             var result = await _user_service.GetSingleUser(user_name);
             return Ok(result);
         }

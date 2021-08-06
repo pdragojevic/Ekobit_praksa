@@ -5,20 +5,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { JwtModule } from "@auth0/angular-jwt";
 import { AppComponent } from './app.component';
-import { CitiesComponent } from './cities/cities.component';
-import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
-import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth-guard.service';
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CitiesComponent,
-    LoginComponent,
-    UserComponent,
-    RegisterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +23,14 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

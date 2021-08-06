@@ -1,16 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import {CitiesComponent} from './cities/cities.component'
-import {LoginComponent} from './login/login.component'
-import { RegisterComponent } from './register/register.component';
-import { UserComponent } from './user/user.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 const routes: Routes = [
-    {path:'cities', component:CitiesComponent},
-    {path:'user/:username', component:UserComponent},
-    {path:'', component:LoginComponent},
-    {path:'register', component:RegisterComponent}
+    {
+      path: 'register',
+      loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
+    },
+    {
+      path: 'user/:username',
+      canLoad: [AuthGuard],
+      canActivate: [ AuthGuard ],
+      loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+    },
+    {
+      path: 'cities',
+      canLoad: [AuthGuard],
+      canActivate: [ AuthGuard ],
+      loadChildren: () => import('./cities/cities.module').then(m => m.CitiesModule)
+    },
+    {
+      path: 'login',
+      loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    },
+    {
+      path: '',
+      redirectTo: 'login',
+      pathMatch: 'full'
+    }
   ];
   
   @NgModule({

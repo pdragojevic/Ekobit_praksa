@@ -1,3 +1,4 @@
+using Business.JWT;
 using Business.Mappings;
 using Business.Services.Implementation;
 using Business.Services.Interfaces;
@@ -30,6 +31,8 @@ namespace SimpleLoginAPI
 
             services.AddControllers();
             services.AddSwagger();
+
+            services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<LoginDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
@@ -65,6 +68,8 @@ namespace SimpleLoginAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseAuthorization();
 
