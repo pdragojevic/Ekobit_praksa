@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data.Functions.Interfaces
 {
-    public interface IUser_Operations
+    /*public interface IUser_Operations
     {
         Task<List<Entities.User>> ReadAllUsers();
         Entities.User ReadUser(string user_name);
-    }
+    }*/
 }
